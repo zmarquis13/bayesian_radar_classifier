@@ -1,0 +1,58 @@
+Tufts CS 131: Artificial Intelligence
+Homework 5: Naive Bayesian Classification
+By Zeno Marquis
+4/25/2024
+
+Project:
+Naïve Bayesian Classifier for differentiating birds from planes based on radar
+data
+
+Overview:
+The program uses two features (speed and speed variability) in a Naive Bayesian
+Classification model to classify birds and planes. The program takes labeled
+training data to develop likelihood functions for the variables and classes.
+The total program is split into two program files: one to generate variability
+data, and the other to process the data in order to differentiate objects
+according to the testing data. Speed variability is calculated as the second-
+to-second difference in speed.  
+
+Assumptions:
+The program relies on Bayesian reasoning, meaning that it makes probabilistic
+inferences and not perfectly conclusive statements. If the test data does not
+follow patterns in the training data, or if a sample contains a high number of
+outliers, the program could be unsure or produce a likelihood that marks the
+true value of the object as unlikely. 
+
+Usage:
+Compile the program in the command line by executing "make Bayesian", followed
+by "make Generate". 
+
+To run the program, execute the following command in the command line:
+./Generate dataset.txt testing.txt variation_data.txt variation_likelihoods.txt
+
+Followed by:
+./Bayesian testing.txt likelihood.txt variation_data.txt variation_likelihoods.txt
+
+Outputs:
+The program will output its classification results to the terminal. The file
+variation_likelihoods.txt will contain the likelihoods of speed variation values
+for birds and planes. The file variation_data.txt will contain the 
+second-to-second speed variation for all objects in the testing data.
+
+
+Files:
+    bayesian.cpp - classifier for the program
+
+    generate_var.cpp - program for extracting speed variability likelihood data
+    from the dataset and variability data from the test set
+
+    Makefile - builds the program
+
+
+Testing:
+Results of the program can be seen by running it on the test set (as outlined
+in the usage section above). The program is deterministic, and correctly
+classifies all 10 objects in the test data.
+
+
+
